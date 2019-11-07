@@ -1,2 +1,6 @@
 # Files
 *.json
+*.spec
+build
+dist
+__pycache__

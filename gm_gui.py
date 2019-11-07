@@ -4,7 +4,9 @@ from tkinter import StringVar, IntVar, DoubleVar, BooleanVar
 from tkinter import E, BOTTOM, TOP, BOTH
 from tkinter import messagebox, filedialog
 from sigpropy import TimeSeries, FourierTransform
+# from obspy import read
 import obspy
+# from pandas import read_csv
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -162,7 +164,7 @@ class GroundMotionProcessing():
         title_3.grid(row=0, columnspan=2)
 
         # Smoothing
-        label_3_1_1 = Label(frame3, text="Apply Cosine Taper:", bg=label_bg)
+        label_3_1_1 = Label(frame3, text="Apply Smoothing:", bg=label_bg)
         label_3_1_2 = Label(frame3, text="Smoothing Constant (#):", bg=label_bg)
 
         label_3_1_1.grid(row=2, column=0, sticky=E)        
@@ -185,7 +187,7 @@ class GroundMotionProcessing():
                             bg=label_bg)
         label_3_2_3 = Label(frame3, text="Upper Frequency Limit (Hz):",
                             bg=label_bg)
-        label_3_2_4 = Label(frame3, text="Number of Samples (#)", bg=label_bg)
+        label_3_2_4 = Label(frame3, text="Number of Samples (#):", bg=label_bg)
 
         label_3_2_1.grid(row=5, column=0, sticky=E)
         label_3_2_2.grid(row=6, column=0, sticky=E)
