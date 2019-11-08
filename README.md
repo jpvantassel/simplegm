@@ -15,19 +15,18 @@ After downloading and unzipping the repository:
 
 2. Create a virtual environment called `env` by entering the command `virtualenv env`.
 
-3. Active the virtual environment by running the file `active` inside of `env`
+3. Active the virtual environment by running the file `activate` inside of `env`
   with `source env/bin/activate`. Note that the path to the `activate` file is
   installation dependent and may vary.
 
-4. Once the virtual enviroment is runnig, install dependencies with 
-  `pip install -r   requirements.txt`
+4. Once the virtual environment is running, install dependencies with 
+  `pip install -r requirements.txt`.
 
 5. Navigate to the directory containing the file `simplegm.py`.
 
 6. Enter `python simplegm.py` to launch the program using python.
 
-7. The main and folder navigation window will appear, figures of which are shown
- below.
+7. The main and folder navigation windows will appear below.
 
 <div style="text-align:center">
   <img style="vertical-align: top" src="./figs/main.png" alt="Main Interface" width="384">
@@ -35,11 +34,11 @@ After downloading and unzipping the repository:
 </div>
 
 8. Navigate to the folder named `data` included in the repository download. You
-  will see four comma-delimited ground-motion record files. These files are 
+  will see four comma-delimited ground-motion record files. These files are
   shown in the example navigation window above.
 
 9. Select the `chichi.csv` ground-motion record. The main window will update to
-  appear below.
+  appear as below.
 
 <div style="text-align:center">
   <img src="./figs/chichi_time.png" alt="ChiChi Time" width="384">
@@ -61,10 +60,10 @@ After downloading and unzipping the repository:
   <img src="./figs/chichi_freq.png" alt="ChiChi Frequency" width="384">
 </div>
 
-12. Apply Konno and Ohmachi smoothing and resampling to the Fourier tranform by
+12. Apply smoothing and resampling to the Fourier tranform by
   using the dialog boxes on the bottom left and pressing `Apply`. To apply a
-  different set of value to the Fourier transform, press `FFT` to
-  return to the a clean version of the Fourier transform, enter the new
+  different set of smoothing and resampling to the Fourier transform, press
+  `FFT` to return to the a clean version of the Fourier transform, enter the new
   settings, and press `Apply`.
 
 <div style="text-align:center">
