@@ -1,12 +1,34 @@
-# from matplotlib.backends.backend_tkagg import
+# This file is part of SimpleGM a program for ground motion processing.
+# Copyright (C) 2019 Joseph P. Vantassel (jvantassel@utexas.edu)
+#
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+print("""
+========================================================================
+SimpleGM Copyright (C) 2019 Joseph P. Vantassel
+This program comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to redistribute it under certain conditions. Refer
+to the full liscence for details.
+========================================================================
+""")
+
 from tkinter import Tk, Label, Frame, Button, Checkbutton, Entry
 from tkinter import StringVar, IntVar, DoubleVar, BooleanVar
 from tkinter import E, BOTTOM, TOP, BOTH
 from tkinter import messagebox, filedialog
 from sigpropy import TimeSeries, FourierTransform
-# from obspy import read
 import obspy
-# from pandas import read_csv
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -14,10 +36,9 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 import json
 import os
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.CRITICAL)
 
 rcParams.update({'figure.autolayout': True})
-
 
 class GroundMotionProcessing():
 
@@ -54,7 +75,7 @@ class GroundMotionProcessing():
         logging.info("begin - update_fseries_plot()")
         if bool(self.fseries):
             self.ax2.clear()
-            self.ax2.plot(self.fseries.frq, self.fseries.mag)
+            self.ax2.plot(self.fseries.frq[1:], self.fseries.mag[1:])
         self.ax2.set_title("Frequency Domain")
         self.ax2.set_xlabel("Frequency (Hz)")
         self.ax2.set_ylabel("Amplitude")
@@ -73,7 +94,6 @@ class GroundMotionProcessing():
         check_bg = frame_bg
 
         self.master.minsize(6, 6)
-
 
         # Frame 1 ----------------------------------------------------
         frame1 = Frame(bg=frame_bg)
@@ -286,7 +306,7 @@ class GroundMotionProcessing():
     def load_new_file(self):
         logging.info("begin - load_new_file()")
         # initialdir = r"D:\CurrentResearch\signalprocessing\gm_gui\data"
-        settings_fname = "gm_gui_settings.json"
+        settings_fname = ".gm_gui_settings"
         if os.path.exists(settings_fname):
             with open(settings_fname, "r") as f:
                 settings = json.load(f)
@@ -335,12 +355,9 @@ class GroundMotionProcessing():
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
             self.master.quit()
 
-
 root = Tk()
 root.title("Ground Motion Processing")
 root.configure(bg='#ffffff')
 root.update_idletasks()
-print("Program Started")
 my_gui = GroundMotionProcessing(root)
 root.mainloop()
-print("Program Finished")
