@@ -17,7 +17,7 @@ After downloading and unzipping the repository:
 
 3. Active the virtual environment by running the file `active` inside of `env`
   with `source env/bin/activate`. Note that the path to the `activate` file is
-  installation system dependent and may vary.
+  installation dependent and may vary.
 
 4. Once the virtual enviroment is runnig, install dependencies with 
   `pip install -r   requirements.txt`
