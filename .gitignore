@@ -1,6 +1,7 @@
 # Files
 *.json
 *.spec
+.gm_gui_settings
 build
 dist
 __pycache__
