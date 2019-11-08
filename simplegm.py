@@ -356,7 +356,7 @@ class GroundMotionProcessing():
             self.master.quit()
 
 root = Tk()
-root.title("Ground Motion Processing")
+root.title("SimpleGM")
 root.configure(bg='#ffffff')
 root.update_idletasks()
 my_gui = GroundMotionProcessing(root)
